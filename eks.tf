@@ -87,8 +87,6 @@ module "eks" {
   authentication_mode                      = "API_AND_CONFIG_MAP"
   access_entries                           = local.access_entries
   enable_cluster_creator_admin_permissions = false
-
-
   eks_managed_node_groups = {
     karpenter = {
       instance_types = local.instance_types
@@ -119,8 +117,7 @@ module "eks" {
   }
 
   node_security_group_tags = merge(local.tags, {
-    "kubernetes.io/cluster/${var.nuon_id}" = null
-    "karpenter.sh/discovery"               = local.karpenter.discovery_value
+    "karpenter.sh/discovery" = local.karpenter.discovery_value
   })
 
   tags = merge(local.tags, {

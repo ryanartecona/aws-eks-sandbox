@@ -98,20 +98,20 @@ variable "maintenance_role_eks_access_entry_policy_associations" {
   type        = map(any)
   description = "EKS Cluster Access Entry Policy Associations for maintenance role. Defaults to none meaning permissions are governed by eponymous RBAC group."
   default     = {}
-  # default = {
-  #   cluster_admin = {
-  #     policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
-  #     access_scope = {
-  #       type = "cluster"
-  #     }
-  #   }
-  #   eks_admin = {
-  #     policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy"
-  #     access_scope = {
-  #       type = "cluster"
-  #     }
-  #   }
-  # }
+  default = {
+    cluster_admin = {
+      policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+      access_scope = {
+        type = "cluster"
+      }
+    }
+    eks_admin = {
+      policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy"
+      access_scope = {
+        type = "cluster"
+      }
+    }
+  }
 }
 
 variable "deprovision_role_eks_access_entry_policy_associations" {
